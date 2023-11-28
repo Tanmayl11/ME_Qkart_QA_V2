@@ -26,7 +26,7 @@ public class SearchResult {
         // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 03: MILESTONE 1
         // Find the element containing the title (product name) of the search result and
         // assign the extract title text to titleOfSearchResult
-        WebElement element = parentElement.findElement(By.xpath("//*[@id='root']/div/div/div[3]/div/div[2]/div/div/div[1]/p[1]"));
+        WebElement element = parentElement.findElement(By.className("css-yg30e6"));
         titleOfSearchResult = element.getText();
         return titleOfSearchResult;
     }

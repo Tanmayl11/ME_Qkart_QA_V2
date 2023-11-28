@@ -50,6 +50,7 @@ public class Login {
         // Wait for Login action to complete
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("username-text")));
+        Thread.sleep(5000);
 
         return this.VerifyUserLoggedIn(Username);
     }
@@ -59,6 +60,7 @@ public class Login {
             // Find the username label (present on the top right of the page)
             WebElement username_label;
              username_label = this.driver.findElement(By.className("username-text"));
+            username_label = this.driver.findElement(By.className("username-text"));
             return username_label.getText().equals(Username);
         } catch (Exception e) {
             return false;

@@ -455,7 +455,7 @@ public class QkartSanity {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         try {
-            // Execute Test Case 1
+             //Execute Test Case 1
             totalTests += 1;
             status = TestCase01(driver);
             if (status) {
@@ -464,7 +464,7 @@ public class QkartSanity {
 
             System.out.println("");
 
-            // Execute Test Case 2
+             //Execute Test Case 2
             totalTests += 1;
             status = TestCase02(driver);
             if (status) {
@@ -481,7 +481,7 @@ public class QkartSanity {
 
              System.out.println("");
 
-            // Execute Test Case 4
+             //Execute Test Case 4
              totalTests += 1;
              status = TestCase04(driver);
              if (status) {
@@ -490,16 +490,16 @@ public class QkartSanity {
 
              System.out.println("");
 
-            // Execute Test Case 5
+             //Execute Test Case 5
              totalTests += 1;
              status = TestCase05(driver);
              if (status) {
              passedTests += 1;
              }
 
-             System.out.println("");
+            System.out.println("");
 
-            // Execute Test Case 6
+             //Execute Test Case 6
              totalTests += 1;
              status = TestCase06(driver);
              if (status) {

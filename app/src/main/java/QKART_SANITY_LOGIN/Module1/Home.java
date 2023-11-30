@@ -51,13 +51,12 @@ public class Home {
             searchbox.clear();
             searchbox.sendKeys(product);
             Thread.sleep(3000);
-            // WebDriverWait wait = new WebDriverWait(driver, 30);
-            // wait.until(ExpectedConditions.or
-            // (ExpectedConditions.textToBePresentInElementLocated(By.xpath("//p[contains(@class,'css-yg30e6')]"),
-            // product),
-            // ExpectedConditions.presenceOfElementLocated(By.xpath("//h4[contains(text(),'No
-            // products found')]"))
-            // ));
+            /*WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.or(
+                    ExpectedConditions.textToBePresentInElementLocated(
+                            By.xpath("//p[contains(@class,'css-yg30e6')]"), product),
+                    ExpectedConditions.presenceOfElementLocated(
+                            By.xpath("//h4[contains(text(),'Noproducts found')]"))));*/
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
@@ -175,17 +174,17 @@ public class Home {
                 String actualProductName = titleElement.getText();
                 if (actualProductName.equals(productName)) {
                     while (true) {
-                        WebElement currentQuantityElement = parentElement.findElement(By.xpath(
-                                ".//div[@data-testid='item-qty']"));
+                        WebElement currentQuantityElement = parentElement
+                                .findElement(By.xpath(".//div[@data-testid='item-qty']"));
                         String currentQuantityText = currentQuantityElement.getText();
                         int currentQuantity = Integer.parseInt(currentQuantityText);
                         if (quantity > currentQuantity) {
                             WebElement plusButton = parentElement
-                                    .findElement(By.xpath("//*[@data-testid='AddOutlinedIcon']"));
+                                    .findElement(By.xpath(".//*[@data-testid='AddOutlinedIcon']"));
                             plusButton.click();
                         } else if (quantity < currentQuantity) {
                             WebElement minusButton = parentElement.findElement(
-                                    By.xpath("//*[@data-testid='RemoveOutlinedIcon']"));
+                                    By.xpath(".//*[@data-testid='RemoveOutlinedIcon']"));
                             minusButton.click();
                         } else if (quantity == currentQuantity) {
                             break;

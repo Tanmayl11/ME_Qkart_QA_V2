@@ -169,7 +169,7 @@ public class Home {
             // quantity is reached (Note: Keep a look out when then input quantity is 0,
             // here we need to remove the item completely from the cart)
             List<WebElement> parentElements =
-                    driver.findElements(By.xpath("//div[@class=MuiBox-root css-1gjj37g']"));
+                    driver.findElements(By.xpath("//div[@class='MuiBox-root css-1gjj37g']"));
             for (WebElement parentElement : parentElements) {
                 WebElement titleElement = parentElement.findElement(By.xpath("./div[1]"));
                 String actualProductName = titleElement.getText();

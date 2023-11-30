@@ -456,7 +456,7 @@ public class QkartSanity {
 
         try {
              //Execute Test Case 1
-            totalTests += 1;
+             totalTests += 1;
             status = TestCase01(driver);
             if (status) {
                 passedTests += 1;

@@ -23,6 +23,7 @@ public class SearchResult {
      */
     public String getTitleofResult() {
         String titleOfSearchResult = "";
+        // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 03: MILESTONE 1
         // Find the element containing the title (product name) of the search result and
         // assign the extract title text to titleOfSearchResult
         WebElement element = parentElement.findElement(By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-yg30e6']"));
@@ -35,6 +36,9 @@ public class SearchResult {
      */
     public Boolean openSizechart() {
         try {
+
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
+            // Find the link of size chart in the parentElement and click on it
             WebElement element = parentElement.findElement(By.tagName("button"));
             element.click();
 
@@ -51,18 +55,13 @@ public class SearchResult {
      */
     public Boolean closeSizeChart(WebDriver driver) {
         try {
-            synchronized (driver) {
-                driver.wait(2000);
-            }
-            
+            Thread.sleep(2000);
             Actions action = new Actions(driver);
 
+            // Clicking on "ESC" key closes the size chart modal
             action.sendKeys(Keys.ESCAPE);
             action.perform();
-
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("MuiDialog-paperScrollPaper")));
-
+            Thread.sleep(2000);
             return true;
         } catch (Exception e) {
             System.out.println("Exception while closing the size chart: " + e.getMessage());
@@ -76,6 +75,7 @@ public class SearchResult {
     public Boolean verifySizeChartExists() {
         Boolean status = false;
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
             /*
              * Check if the size chart element exists. If it exists, check if the text of
              * the element is "SIZE CHART". If the text "SIZE CHART" matches for the
@@ -83,7 +83,6 @@ public class SearchResult {
              */
             WebElement element = parentElement.findElement(By.tagName("button"));
             status = element.getText().equals("SIZE CHART");
-
             return status;
         } catch (Exception e) {
             return status;
@@ -98,6 +97,7 @@ public class SearchResult {
             WebDriver driver) {
         Boolean status = true;
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
             /*
              * Locate the table element when the size chart modal is open
              * 
@@ -153,6 +153,8 @@ public class SearchResult {
     public Boolean verifyExistenceofSizeDropdown(WebDriver driver) {
         Boolean status = false;
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
+            // If the size dropdown exists and is displayed return true, else return false
             WebElement element = driver.findElement(By.className("css-13sljp9"));
             status = element.isDisplayed();
             return status;

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login {
     RemoteWebDriver driver;
@@ -46,9 +47,10 @@ public class Login {
         // Click the login Button
         login_button.click();
 
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.invisibilityOf(login_button));
+        // Wait for Login action to complete
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("username-text")));
+        Thread.sleep(5000);
 
         return this.VerifyUserLoggedIn(Username);
     }
@@ -56,7 +58,8 @@ public class Login {
     public Boolean VerifyUserLoggedIn(String Username) {
         try {
             // Find the username label (present on the top right of the page)
-            WebElement username_label = this.driver.findElement(By.className("username-text"));
+            WebElement username_label;
+             username_label = this.driver.findElement(By.className("username-text"));
             return username_label.getText().equals(Username);
         } catch (Exception e) {
             return false;
